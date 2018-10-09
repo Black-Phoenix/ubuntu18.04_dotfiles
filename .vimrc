@@ -147,6 +147,8 @@ map <F7> mzgg=G`z
 	let g:ycm_confirm_extra_conf = 0
 	let g:ycm_show_diagnostics_ui = 0
 	let g:ycm_semantic_triggers = { 'roslaunch' : ['="', '$(', '/'],    'rosmsg,rossrv,rosaction' : ['re!^', '/'] }
+    let g:ycm_seed_identifiers_with_syntax = 1
+    let g:ycm_collect_identifiers_from_tags_files = 1
 " }
 " Folding{
 	let anyfold_activate=1
