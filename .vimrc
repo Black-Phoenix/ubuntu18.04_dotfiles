@@ -32,7 +32,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
-
 filetype plugin indent on    " required
 
 " New leader
@@ -95,6 +94,7 @@ let mapleader="\<SPACE>"
 	" esc clears highlight
 	nnoremap <esc><esc> :noh<return><esc>
 	set ttimeoutlen=50 " sets a timeour to help speed it up
+    set backspace=indent,eol,start
 "}
 " Quit current file
 	noremap <leader>q :q<cr>
