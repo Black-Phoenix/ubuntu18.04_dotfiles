@@ -18,6 +18,7 @@ alias fhere="find . -name "
 alias spotify="/usr/bin/spotify --force-device-scale-factor=1.5"
 alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
 alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
+alias 520="cd ~/Code/Matlab/MEAM_520/; matlab . &"
 # only if ros melodic is used 
 function ask()          # See 'killps' for example of use.
 {
