@@ -67,6 +67,8 @@ nnoremap <leader><leader> V
 " tab switching {
     noremap <S-l> gt
     noremap <S-h> gT
+    nnoremap <C-W>M <C-W>\|<C-W>_
+    nnoremap <C-W>m <C-W>=
 " }
 " qq to record, q to stop, Q to use 
 " learn dynamic macros{
