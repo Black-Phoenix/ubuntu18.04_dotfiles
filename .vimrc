@@ -34,6 +34,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
+Plugin 'ervandew/screen'
 filetype plugin indent on    " required
 
 " New leader
@@ -167,5 +168,11 @@ noremap <leader>q :q<cr>
 " }
 " Comments{
     nmap <C+/> NERDComToggleComment
+    autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
+    autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
+" }
+" Relode changes {
+     set autoread
+     au CursorHold * checktime
 " }
 call vundle#end()            " required

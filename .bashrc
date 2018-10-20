@@ -18,6 +18,7 @@ alias fhere="find . -name "
 alias spotify="/usr/bin/spotify --force-device-scale-factor=1.5"
 alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
 alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
+alias gut="git"
 function m520()
 {
     mkcdir ~/Code/Matlab/MEAM_520/Lab_$1/code 
