@@ -31,6 +31,7 @@ Plugin 'inkarkat/vim-ingo-library'
 Plugin 'inkarkat/vim-spellcheck'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-bufferline'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
 filetype plugin indent on    " required
@@ -163,5 +164,8 @@ noremap <leader>q :q<cr>
     let g:mundo_width = 60
     let g:mundo_preview_height = 40
 
+" }
+" Comments{
+    nmap <C+/> NERDComToggleComment
 " }
 call vundle#end()            " required

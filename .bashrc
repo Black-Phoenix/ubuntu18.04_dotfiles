@@ -20,8 +20,7 @@ alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
 alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
 function m520()
 {
-    cd ~/Code/Matlab/MEAM_520/Lab_$1  
-    cd code 
+    mkcdir ~/Code/Matlab/MEAM_520/Lab_$1/code 
     matlab . &
 }
 # only if ros melodic is used 
