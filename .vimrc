@@ -1,4 +1,3 @@
-" Vaibhav Arcot's vimrc file
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
@@ -35,6 +34,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
 Plugin 'ervandew/screen'
+Plugin 'gotcha/vimpdb'
 filetype plugin indent on    " required
 
 " New leader
@@ -101,8 +101,10 @@ nnoremap <leader><leader> V
     set ttimeoutlen=50 " sets a timeour to help speed it up
     set backspace=indent,eol,start
 "}
-" Quit current file
-noremap <leader>q :q<cr>
+" Quit current file {
+    noremap <leader>Q :q!<cr>
+    noremap <leader>q :q<cr>
+" }
 " Save with CTRL-S both in insert and command mode{
     map <C-s> :w<CR>
     imap <C-s> <Esc>:w<CR>
