@@ -35,6 +35,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
 Plugin 'ervandew/screen'
 Plugin 'gotcha/vimpdb'
+Plugin 'gregsexton/gitv'
 filetype plugin indent on    " required
 
 " New leader
@@ -157,16 +158,14 @@ nnoremap <leader><leader> V
 " }
 " Folding{
     let anyfold_activate=1
-"	set foldlevel=0
     nmap za zA
 " }
 " undo tree{
     set undofile
-    set undodir=~/.vim/undo
+    set undodir=~/dotfiles/undo
     nnoremap <leader>u :MundoToggle<CR>
     let g:mundo_width = 60
     let g:mundo_preview_height = 40
-
 " }
 " Comments{
     nmap <C+/> NERDComToggleComment
