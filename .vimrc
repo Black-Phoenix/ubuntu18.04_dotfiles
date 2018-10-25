@@ -40,6 +40,11 @@ filetype plugin indent on    " required
 
 " New leader
 let mapleader="\<SPACE>"
+" Reopen at same place {
+    au BufWinLeave * mkview
+    au BufWinEnter * silent loadview
+
+" }
 " Tab {
     set tabstop=4        " tab width is 4 spaces
     set shiftwidth=4     " indent also with 4 spaces
