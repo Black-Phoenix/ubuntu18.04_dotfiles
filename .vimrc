@@ -46,7 +46,7 @@ let mapleader="\<SPACE>"
     set expandtab        " replaces tab with spaces
 " }
 " Visual mode
-nnoremap <leader><leader> V
+    nnoremap <leader><leader> V
 " }
 " Splits {
     nnoremap <leader>- :sp<CR>
@@ -130,6 +130,9 @@ nnoremap <leader><leader> V
     set t_vb=
     set tm=500
 "}
+" Marks and Jumps {
+    set viminfo='100,f1
+" }
 " Indentation {
     set ai "Auto indent
     set si "Smart indent
