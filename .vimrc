@@ -132,6 +132,12 @@ let mapleader="\<SPACE>"
 "}
 " Marks and Jumps {
     set viminfo='100,f1
+    onoremap ' `
+    onoremap ` '
+    nnoremap ' `
+    nnoremap ` '
+    vnoremap ' `
+    vnoremap ` '
 " }
 " Indentation {
     set ai "Auto indent
