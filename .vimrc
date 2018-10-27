@@ -36,14 +36,16 @@ Plugin 'sickill/vim-pasta'
 Plugin 'ervandew/screen'
 Plugin 'gotcha/vimpdb'
 Plugin 'gregsexton/gitv'
+Plugin 'kshenoy/vim-signature'
 filetype plugin indent on    " required
 
 " New leader
 let mapleader="\<SPACE>"
 " Reopen at same place {
-    au BufWinLeave * mkview
-    au BufWinEnter * silent loadview
-
+    if has("autocmd")
+      au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+    endif
 " }
 " Tab {
     set tabstop=4        " tab width is 4 spaces
@@ -137,12 +139,13 @@ let mapleader="\<SPACE>"
 "}
 " Marks and Jumps {
     set viminfo='100,f1
-    onoremap ' `
-    onoremap ` '
-    nnoremap ' `
-    nnoremap ` '
-    vnoremap ' `
-    vnoremap ` '
+    let g:SignatureMarkTextHLDynamic = 1
+    "onoremap ' `
+    "onoremap ` '
+    "nnoremap ' `
+    "nnoremap ` '
+    "vnoremap ' `
+    "vnoremap ` '
 " }
 " Indentation {
     set ai "Auto indent
@@ -182,7 +185,8 @@ let mapleader="\<SPACE>"
     let g:mundo_preview_height = 40
 " }
 " Comments{
-    nmap <C+/> NERDComToggleComment
+    nmap <C-_>   <Plug>NERDCommenterToggle
+    vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
     autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
     autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
 " }
