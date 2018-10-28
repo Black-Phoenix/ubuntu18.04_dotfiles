@@ -208,6 +208,9 @@ let mapleader="\<SPACE>"
     map  / <Plug>(easymotion-sn)
     omap / <Plug>(easymotion-tn)
 
+    " Move to any line
+    map <Leader>l <Plug>(easymotion-bd-jk)
+    nmap <Leader>l <Plug>(easymotion-overwin-line)
     " Move to word
     map  <Leader>w <Plug>(easymotion-bd-w)
     nmap <Leader>w <Plug>(easymotion-overwin-w)
