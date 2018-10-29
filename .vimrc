@@ -37,6 +37,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature' "Vim marks
 Plugin 'easymotion/vim-easymotion' " Movement using leader + <key>
 Plugin 'tpope/vim-repeat'
+Plugin 'jiangmiao/auto-pairs'
 filetype plugin indent on    " required
 
 " New leader
