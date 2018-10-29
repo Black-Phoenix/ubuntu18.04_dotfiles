@@ -32,11 +32,10 @@ Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-pasta'
-Plugin 'ervandew/screen'
 Plugin 'gotcha/vimpdb'
 Plugin 'gregsexton/gitv'
-Plugin 'kshenoy/vim-signature'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'kshenoy/vim-signature' "Vim marks
+Plugin 'easymotion/vim-easymotion' " Movement using leader + <key>
 Plugin 'tpope/vim-repeat'
 filetype plugin indent on    " required
 
