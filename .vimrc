@@ -117,6 +117,7 @@ let mapleader="\<SPACE>"
 " Save with CTRL-S both in insert and command mode{
     map <C-s> :w<CR>
     imap <C-s> <Esc>:w<CR>
+    imap jj <Esc>
 "}
 " lightline {
     set laststatus=2
