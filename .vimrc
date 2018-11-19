@@ -231,4 +231,7 @@ let mapleader="\<SPACE>"
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
 " }
+" Copy global clipboard{
+    set clipboard=unnamedplus
+" }
 call vundle#end()            " required
