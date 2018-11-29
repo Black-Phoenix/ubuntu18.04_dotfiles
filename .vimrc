@@ -234,4 +234,8 @@ let mapleader="\<SPACE>"
 " Copy global clipboard{
     set clipboard=unnamedplus
 " }
+" Python running code{
+    imap <F5> <Esc>:w<CR>:!clear;python %<CR>
+    nnoremap <buffer> <F5> :!clear;python %<CR>
+" }
 call vundle#end()            " required

@@ -20,6 +20,8 @@ alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
 alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
 alias gut="git"
 alias gs='git status'
+alias gc='git commit'
+alias get='sudo apt-get install'
 function m520()
 {
     mkcdir ~/Code/Matlab/MEAM_520/Lab_$1/code 
