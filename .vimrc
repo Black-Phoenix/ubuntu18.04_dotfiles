@@ -36,6 +36,8 @@ Plugin 'gotcha/vimpdb'
 Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature' "Vim marks
 Plugin 'easymotion/vim-easymotion' " Movement using leader + <key>
+Plugin 'mattn/calendar-vim' " Calander for Vim wiki 
+Plugin 'vimwiki/vimwiki.git' " VimWiki 
 Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
 filetype plugin indent on    " required
@@ -235,7 +237,31 @@ let mapleader="\<SPACE>"
     set clipboard=unnamedplus
 " }
 " Python running code{
-    imap <F5> <Esc>:w<CR>:!clear;python %<CR>
-    nnoremap <F5> :!clear;python %<CR>
+    imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
+    nnoremap <F5> :!clear;python3 %<CR>
+" }
+" VimWiki {
+    let g:vimwiki_list = [{
+                \ 'path': '$HOME/vimwiki/',
+                \ 'template_path': '$HOME/vimwiki/templates',
+                \ 'template_default': 'default',
+                \ 'template_ext': '.html'}]
+    let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr, pre, script'
+    nnoremap <leader>c :VimwikiToggleListItem<CR>
+    au BufRead,BufNewFile *.wiki set filetype=vimwiki
+    function! ToggleCalendar()
+      execute ":Calendar"
+      if exists("g:calendar_open")
+        if g:calendar_open == 1
+          execute "q"
+          unlet g:calendar_open
+        else
+          g:calendar_open = 1
+        end
+      else
+        let g:calendar_open = 1
+      end
+    endfunction
+    :autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
 " }
 call vundle#end()            " required
