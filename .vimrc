@@ -262,6 +262,16 @@ let mapleader="\<SPACE>"
         let g:calendar_open = 1
       end
     endfunction
-    :autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
+    :autocmd FileType vimwiki map C :call ToggleCalendar()<CR>
 " }
-call vundle#end()            " required
+" Matrix function{
+    function! CreateMatrix(rows, ...) abort
+        let cols = a:0 ? a:1 : 3
+        let matrix = ['\begin{bmatrix}', join(repeat([repeat('! & ', cols - 1) . '!\\'], a:rows), ""), '\end{bmatrix}' ]
+        let matrix = join(matrix, " ")
+        "call append(line('.'), matrix)
+        call setline('.', getline('.') . matrix)
+    endfunction
+    command! -nargs=+ Mat silent call CreateMatrix(<f-args>)
+" }
+call vundle#end()   
