@@ -269,9 +269,16 @@ let mapleader="\<SPACE>"
         let cols = a:0 ? a:1 : 3
         let matrix = ['\begin{bmatrix}', join(repeat([repeat('! & ', cols - 1) . '!\\'], a:rows), ""), '\end{bmatrix}' ]
         let matrix = join(matrix, " ")
-        "call append(line('.'), matrix)
         call setline('.', getline('.') . matrix)
     endfunction
     command! -nargs=+ Mat silent call CreateMatrix(<f-args>)
+" }
+" Spell checks{
+    set spell
+    set spell spelllang=en_us 
+    hi clear SpellBad
+    hi SpellBad ctermfg=red guifg=red
+    hi clear SpellCap
+    hi SpellCap ctermfg=Yellow guifg=Yellow
 " }
 call vundle#end()   
