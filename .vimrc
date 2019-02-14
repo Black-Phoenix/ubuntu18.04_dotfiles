@@ -281,4 +281,11 @@ let mapleader="\<SPACE>"
     hi clear SpellCap
     hi SpellCap ctermfg=Yellow guifg=Yellow
 " }
+" Command t{
+    if &term =~ "xterm" || &term =~ "screen"
+        let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+    endif
+    " Jump remapping
+    nmap <Leader>J <Plug>(CommandTJump)
+" }
 call vundle#end()   
