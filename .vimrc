@@ -23,7 +23,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'taketwo/vim-ros'
+"Plugin 'taketwo/vim-ros'
 Plugin 'pseewald/vim-anyfold'
 Plugin 'inkarkat/vim-ingo-library'
 Plugin 'inkarkat/vim-spellcheck'
@@ -40,6 +40,7 @@ Plugin 'mattn/calendar-vim' " Calander for Vim wiki
 Plugin 'vimwiki/vimwiki.git' " VimWiki 
 Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-vdebug/vdebug'
 filetype plugin indent on    " required
 
 " New leader
@@ -237,8 +238,8 @@ let mapleader="\<SPACE>"
     set clipboard=unnamedplus
 " }
 " Python running code{
-    imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
-    nnoremap <F5> :!clear;python3 %<CR>
+    "imap <F5> <Esc>:w<CR>:!clear;python %<CR>
+    "nnoremap <F5> :!clear;python %<CR>
 " }
 " VimWiki {
     let g:vimwiki_list = [{
