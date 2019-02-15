@@ -238,8 +238,8 @@ let mapleader="\<SPACE>"
     set clipboard=unnamedplus
 " }
 " Python running code{
-    "imap <F5> <Esc>:w<CR>:!clear;python %<CR>
-    "nnoremap <F5> :!clear;python %<CR>
+    imap <Leader>p <Esc>:w<CR>:!clear;python %<CR>
+    nnoremap <Leader>p :!clear;python %<CR>
 " }
 " VimWiki {
     let g:vimwiki_list = [{
@@ -288,5 +288,17 @@ let mapleader="\<SPACE>"
     endif
     " Jump remapping
     nmap <Leader>J <Plug>(CommandTJump)
+" }
+" VDebug{
+    function! DebugPy(...)
+        let str_args = join(a:000, ' ')
+        " command to launch - uses local path to pydbgp, probably this can be done in a better way
+        let last_cmd = 'silent !python3 ~/Code/git/Komodo-PythonRemoteDebugging-8.5.4-86985-linux-x86/pydbgp.py -d localhost:9000 ' . str_args . ' &'  
+        " start debugging
+        python3 debugger.run()
+        " launch command in backgound
+        execute last_cmd 
+    endfunction
+    command! -nargs=* DebugPy call DebugPy('% <args>')
 " }
 call vundle#end()   
