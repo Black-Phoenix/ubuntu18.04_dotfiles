@@ -133,3 +133,4 @@ function unplug(){
     xrandr -d :0 --output HDMI1 --off
     xrandr -d :0 --fb 3840x2160 --output eDP1  --scale 1x1 --pos 0x0 --primary
 }
+. ~/dotfiles/z.sh

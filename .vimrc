@@ -41,6 +41,7 @@ Plugin 'vimwiki/vimwiki.git' " VimWiki
 Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-vdebug/vdebug'
+Plugin 'christoomey/vim-tmux-navigator'
 filetype plugin indent on    " required
 
 " New leader
@@ -89,7 +90,7 @@ let mapleader="\<SPACE>"
     nnoremap Q @q
     vnoremap Q :norm @q<cr>
 "}
-" line numers are for plebs {
+" line numbers are for plebs {
     set number relativenumber
     augroup numbertoggle
         autocmd!
@@ -177,9 +178,12 @@ let mapleader="\<SPACE>"
     let g:ycm_semantic_triggers = { 'roslaunch' : ['="', '$(', '/'],    'rosmsg,rossrv,rosaction' : ['re!^', '/'] }
     let g:ycm_seed_identifiers_with_syntax = 1
     let g:ycm_collect_identifiers_from_tags_files = 1
+    " Let YCM help VimWiki
+    let g:ycm_filetype_blacklist = {}
 " }
 " Folding{
-    let anyfold_activate=1
+    "let anyfold_activate=1
+    autocmd Filetype * AnyFoldActivate
     nmap za zA
 " }
 " undo tree{
@@ -238,7 +242,7 @@ let mapleader="\<SPACE>"
     set clipboard=unnamedplus
 " }
 " Python running code{
-    imap <Leader>p <Esc>:w<CR>:!clear;python %<CR>
+    "imap <Leader>P <Esc>:w<CR>:!clear;python %<CR>
     nnoremap <Leader>p :!clear;python %<CR>
 " }
 " VimWiki {
