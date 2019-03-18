@@ -21,11 +21,20 @@ alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
 alias gut="git"
 alias gs='git status'
 alias get='sudo apt-get install'
+alias update='sudo apt=get update; sudo apt-get upgrade'
 alias gcm='git commit -m'
-function m520()
+# Remap history and tab complete{
+    bind TAB:menu-complete
+    bind '"\e[Z": menu-complete-backward'
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+    bind '"\eOA": history-search-backward'
+    bind '"\eOB": history-search-forward'
+# }
+function e650()
 {
-    mkcdir ~/Code/Matlab/MEAM_520/Lab_$1/code 
-    matlab . &
+    mkcdir ~/Code/Python/ESE_650/
+    pycharm-professional . &
 }
 # only if ros melodic is used 
 function ask()          # See 'killps'za for example of use.

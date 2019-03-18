@@ -17,7 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'dracula/vim'
 Plugin 'jonstoler/werewolf.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'simnalamburt/vim-mundo'
@@ -40,7 +40,7 @@ Plugin 'mattn/calendar-vim' " Calander for Vim wiki
 Plugin 'vimwiki/vimwiki.git' " VimWiki 
 Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-vdebug/vdebug'
+"Plugin 'vim-vdebug/vdebug'
 Plugin 'christoomey/vim-tmux-navigator'
 filetype plugin indent on    " required
 
@@ -304,5 +304,8 @@ let mapleader="\<SPACE>"
         execute last_cmd 
     endfunction
     command! -nargs=* DebugPy call DebugPy('% <args>')
+" }
+" FZF{
+    set rtp+=~/.fzf
 " }
 call vundle#end()   
