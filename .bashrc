@@ -8,16 +8,12 @@ vim()
  stty "$STTYOPTS"
 }
 # mkdir and cd into in
-mkcdir ()
-{
- mkdir -p -- "$1" &&
-   cd -P -- "$1"
-}
-# Alias 
+alias c="clear"
 alias fhere="find . -name "
 alias spotify="/usr/bin/spotify --force-device-scale-factor=1.5"
 alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
 alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
+alias sourcekros="source ~/Code/Gazebo_KLab/catkin_ws/devel/setup.bash"
 alias gut="git"
 alias gs='git status'
 alias get='sudo apt-get install'
@@ -131,15 +127,31 @@ xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | more
 function plugin()
 {
     # Code that sets up a second monitor when of a different resolution (1920x1080)
-    xrandr -d :0 --fb  7680x2160 --output eDP1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
-    xrandr -d :0 --output HDMI1 --off
-    xrandr -d :0 --fb 7680x2160 --output HDMI1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
-    xrandr -d :0 --fb 7680x2160 --output HDMI1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+    xrandr -d :0 --fb  7680x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
+    xrandr -d :0 --output HDMI-1 --off
+    xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+    xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+
+}
+function plugin1()
+{
+    # Code that sets up a second monitor when of a different resolution (1920x1080)
+    xrandr -d :0 --fb  7680x2160 --output eDP-1-1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
+    xrandr -d :0 --output HDMI-1-1 --off
+    xrandr -d :0 --fb 7680x2160 --output HDMI-1-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+    xrandr -d :0 --fb 7680x2160 --output HDMI-1-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
 
 }
 function unplug(){
     # fn to call once the other monitor is unplugged to get stuff back to normal
-    xrandr -d :0 --output HDMI1 --off
-    xrandr -d :0 --fb 3840x2160 --output eDP1  --scale 1x1 --pos 0x0 --primary
+    xrandr -d :0 --output HDMI-1 --off
+    xrandr -d :0 --fb 3840x2160 --output eDP-1  --scale 1x1 --pos 0x0 --primary
 }
 . ~/dotfiles/z.sh
+export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
+# Powerlien
+export PATH=$PATH:$HOME/Library/Python/2.7/bin
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /home/raven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
