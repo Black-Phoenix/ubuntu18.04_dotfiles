@@ -17,8 +17,11 @@ alias sourcekros="source ~/Code/Gazebo_KLab/catkin_ws/devel/setup.bash"
 alias gut="git"
 alias gs='git status'
 alias get='sudo apt-get install'
-alias update='sudo apt=get update; sudo apt-get upgrade'
+alias update='sudo apt-get update; sudo apt-get upgrade'
+alias mux="tmuxinator"
 alias gcm='git commit -m'
+alias ga='git add'
+
 # Remap history and tab complete{
     bind TAB:menu-complete
     bind '"\e[Z": menu-complete-backward'
@@ -27,6 +30,9 @@ alias gcm='git commit -m'
     bind '"\eOA": history-search-backward'
     bind '"\eOB": history-search-forward'
 # }
+function rf(){
+    rm -rf "$1"
+}
 function e650()
 {
     mkcdir ~/Code/Python/ESE_650/
@@ -147,11 +153,33 @@ function unplug(){
     xrandr -d :0 --output HDMI-1 --off
     xrandr -d :0 --fb 3840x2160 --output eDP-1  --scale 1x1 --pos 0x0 --primary
 }
+function unplug_main(){
+    # fn to call once the other monitor is unplugged to get stuff back to normal
+    xrandr -d :0 --output eDP-1 --off
+    #xrandr -d :0 --fb 3840x2160 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 3840x2160 --primary --scale 1.5x1.5
+    xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
+    xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
+}
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
 . ~/dotfiles/z.sh
 export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
+export EDITOR='vim'
 # Powerlien
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /home/raven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+# Fix history
+    export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+    export HISTSIZE=100000                   # big big history
+    export HISTFILESIZE=100000               # big big history
+    shopt -s histappend                      # append to history, don't overwrite it
+
+    # Save and reload the history after each command finishes
+    export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

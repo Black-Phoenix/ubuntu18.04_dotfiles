@@ -21,7 +21,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'simnalamburt/vim-mundo'
-Plugin 'morhetz/gruvbox'
+Plugin 'morhetz/gruvbox' "Color scheme 1
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'taketwo/vim-ros'
 Plugin 'pseewald/vim-anyfold'
@@ -163,6 +164,8 @@ let mapleader="\<SPACE>"
     set t_Co=256
     let g:gruvbox_italic=1
     color gruvbox
+    "let g:solarized_termcolors=256
+    "colorscheme solarized
     set background=dark
 "}
 " Syntastic {
