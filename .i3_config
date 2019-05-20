@@ -1,0 +1,225 @@
+# i3 config file (v4) for Regolith Desktop Environment
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+
+set $base03    #002b36
+set $base02    #073642
+set $base01    #586e75
+set $base00    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b10
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
+set $transparent #00000000
+set $lucent    #00000088
+
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws0 "10:"
+#set $ws1  "1 <span foreground='#268bd2'></span> "
+#set $ws2  "2 <span foreground='#2aa198'></span> "
+#set $ws3  "3 <span foreground='#859900'></span> "
+#set $ws4  "4 <span foreground='#b58900'></span> "
+#set $ws5  "5 <span foreground='#cb4b10'></span> "
+#set $ws6  "6 <span foreground='#dc322f'></span> "
+#set $ws7  "7 <span foreground='#d33682'></span> "
+#set $ws8  "8 <span foreground='#6c71c4'></span> "
+#set $ws9  "9 <span foreground='#93a1a1'></span> "
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+hide_edge_borders smart
+for_window [class="^.*"] border pixel 3
+
+
+# start a terminal
+bindsym $mod+Return exec gnome-terminal 
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# rofi app and window launchers
+bindsym $mod+space exec rofi -show drun -theme regolith-theme
+bindsym $mod+Shift+space exec rofi -show run -theme regolith-theme
+bindsym $mod+w exec rofi -show window -theme regolith-theme
+
+# change focus (try with vim keybiding for practice vim editor) (i3wm keybinding movement scheme conflict with vim wich will be disaster to use i3wm+vim together)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change gaps interactively
+bindsym $mod+minus gaps inner current minus 6
+bindsym $mod+plus gaps inner current plus 6
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+s layout toggle split
+
+# show/hide keybindings
+bindsym $mod+question exec /usr/bin/conky-toggle.sh
+
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Alt+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# cycle between workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+e exit
+
+bindsym $mod+Escape exec gnome-screensaver-command --lock
+
+bindsym $mod+m move workspace to output left
+#bindsym $mod+Shift+s exec systemctl suspend
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 6 px or 6 ppt
+        bindsym Down resize grow height 6 px or 6 ppt
+        bindsym Up resize shrink height 6 px or 6 ppt
+        bindsym Right resize grow width 6 px or 6 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Disable titlebar
+new_window pixel 1
+new_float pixel 1
+
+# Gaps (i3-gaps)
+gaps inner 18
+gaps outer 0
+
+smart_gaps on
+
+# Window Border color
+client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent           #002b36 #dc322f #fdf6e3 #002b36
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
+
+focus_follows_mouse no
+
+# Configure the bar
+bar {
+  #font pango:Source Code Pro Medium 13
+  #separator_symbol " "
+  #status_command i3blocks
+  #tray_output none
+
+  #colors {
+      #background $base03
+      #statusline $base1
+      #separator  $blue
+##                        BORDER  BACKGROUND TEXT
+      #focused_workspace  $base02  $base02  $base2
+      #active_workspace   $base02  $base02  $base01
+      #inactive_workspace $base03  $base03  $base01
+      #urgent_workspace   $red     $red     $base3
+  #}
+  font pango:Inconsolata 19
+  #position top
+  tray_output none
+  status_command ~/Code/git/bumblebee-status/bumblebee-status -m nic caffeine date time pasink pasource brightness apt battery -a cpu memory -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+}
+
+# Set certain applications to certain windows
+assign [class="Firefox"] $ws1
+assign [class="terminal"] $ws3
+# Run other programs with i3
+exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swciiiii-f --config /etc/xdg/compton.conf
+
+exec --no-startup-id /usr/bin/regolith-ftue.sh
+
+exec --no-startup-id /usr/bin/unclutter -b
+
+exec_always --no-startup-id feh --bg-scale --random  ~/Pictures/Wallpapers/*
+
+exec --no-startup-id /home/raven/Code/git/i3-alternating-layout/alternating_layouts.py
