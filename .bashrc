@@ -185,3 +185,7 @@ POWERLINE_BASH_SELECT=1
 
     # Save and reload the history after each command finishes
     export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# FUCK
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
