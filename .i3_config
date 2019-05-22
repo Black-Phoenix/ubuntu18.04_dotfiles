@@ -207,12 +207,13 @@ bar {
   font pango:Inconsolata 19
   #position top
   tray_output none
-  status_command ~/Code/git/bumblebee-status/bumblebee-status -m nic caffeine date time pasink pasource brightness apt battery -a cpu memory -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+  status_command ~/Code/git/bumblebee-status/bumblebee-status -m nic caffeine date time pasink pasource brightness apt battery -a cpu memory -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t greyish-powerline #solarized-powerline
 }
 
 # Set certain applications to certain windows
 assign [class="Firefox"] $ws1
 assign [class="terminal"] $ws3
+assign [class="Google Play Music Desktop Player"] $ws0
 # Run other programs with i3
 exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swciiiii-f --config /etc/xdg/compton.conf
 
