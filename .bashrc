@@ -162,20 +162,44 @@ function unplug_main(){
     xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
     xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
 }
+function bu () {
+	function usage () {
+		 cat <<-EOF
+			Usage: bu [N]
+							N        N is the number of level to move back up to, this argument must be a positive integer.
+							h help   displays this basic help menu.
+			EOF
+	}
+	# reset variables
+	STRARGMNT=""
+	FUNCTIONARG=$1
+	# Make sure the provided argument is a positive integer:
+	if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
+		for i in $(seq 1 $FUNCTIONARG); do
+				STRARGMNT+="../"
+		done
+		CMD="cd ${STRARGMNT}"
+		eval $CMD
+	else
+		usage
+	fi
+}
+
 mkcdir ()
 {
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
-. ~/dotfiles/z.sh
-export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
-export EDITOR='vim'
-# Powerlien
-export PATH=$PATH:$HOME/Library/Python/2.7/bin
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /home/raven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+# Z
+    . ~/dotfiles/z.sh
+    export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
+    export EDITOR='vim'
+# Powerline
+    export PATH=$PATH:$HOME/Library/Python/2.7/bin
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /home/raven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
 # Fix history
     export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
@@ -186,6 +210,8 @@ POWERLINE_BASH_SELECT=1
     # Save and reload the history after each command finishes
     export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # FUCK
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
+    eval $(thefuck --alias)
+    eval $(thefuck --alias FUCK)
+# Vim bindings
+    set -o vi
+    bind '"jj":vi-movement-mode'

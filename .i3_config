@@ -165,6 +165,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+n exec --no-startup-id flash_window # Flashes current window
 
 # Disable titlebar
 new_window pixel 1
@@ -212,10 +213,11 @@ bar {
 
 # Set certain applications to certain windows
 assign [class="Firefox"] $ws1
-assign [class="terminal"] $ws3
+#assign [class="terminal"] $ws3
 assign [class="Google Play Music Desktop Player"] $ws0
 # Run other programs with i3
-exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swciiiii-f --config /etc/xdg/compton.conf
+#exec --no-startup-id compton --config /home/raven/.config/compton.conf 
+#exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc-f --config /etc/xdg/compton.conf
 
 exec --no-startup-id /usr/bin/regolith-ftue.sh
 
@@ -224,3 +226,5 @@ exec --no-startup-id /usr/bin/unclutter -b
 exec_always --no-startup-id feh --bg-scale --random  ~/Pictures/Wallpapers/*
 
 exec --no-startup-id /home/raven/Code/git/i3-alternating-layout/alternating_layouts.py
+
+exec --no-startup-id flashfocus
