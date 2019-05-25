@@ -1,3 +1,4 @@
+source ./dotfiles/alias.conf
 # fixing c-S for vim
 vim()
 {
@@ -7,23 +8,6 @@ vim()
  command vim "$@"
  stty "$STTYOPTS"
 }
-# mkdir and cd into in
-alias c="clear"
-alias fhere="find . -name "
-alias spotify="/usr/bin/spotify --force-device-scale-factor=1.5"
-alias sourceros="source ~/Code/ROS/catkin_ws/devel/setup.bash"
-alias sourcemodros="source ~/Code/ModLab_ROS/devel/setup.bash"
-alias sourcekros="source ~/Code/Gazebo_KLab/catkin_ws/devel/setup.bash"
-alias gut="git"
-alias gt="git"
-alias gcam="git commit -a -m"
-alias gs='git status'
-alias get='sudo apt-get install'
-alias update='sudo apt-get update; sudo apt-get upgrade'
-alias mux="tmuxinator"
-alias gcm='git commit -m'
-alias ga='git add'
-
 # Remap history and tab complete{
     bind TAB:menu-complete
     bind '"\e[Z": menu-complete-backward'
@@ -185,6 +169,7 @@ function bu () {
 	fi
 }
 
+# mkdir and cd into in
 mkcdir ()
 {
     mkdir -p -- "$1" &&
