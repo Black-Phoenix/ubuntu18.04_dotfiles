@@ -123,7 +123,7 @@ function plugin()
     xrandr -d :0 --output HDMI-1 --off
     xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
     xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
-
+    feh -z ~/Pictures/Wallpapers
 }
 function plugin1()
 {
@@ -197,6 +197,6 @@ mkcdir ()
 # FUCK
     eval $(thefuck --alias)
     eval $(thefuck --alias FUCK)
-# Vim bindings
-    set -o vi
-    bind '"jj":vi-movement-mode'
+ #Vim bindings
+    #set -o vi
+    #bind '"jj":vi-movement-mode'
