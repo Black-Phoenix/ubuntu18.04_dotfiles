@@ -112,7 +112,7 @@ let mapleader="\<SPACE>"
     set incsearch
     " esc clears highlight
     nnoremap <esc><esc> :noh<return><esc>
-    set ttimeoutlen=50 " sets a timeour to help speed it up
+    set ttimeoutlen=50 " sets a time out to help speed it up
     set backspace=indent,eol,start
 "}
 " Quit current file {
@@ -310,5 +310,8 @@ let mapleader="\<SPACE>"
 " }
 " FZF{
     set rtp+=~/.fzf
+" }
+" mouse support{
+    map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 " }
 call vundle#end()   

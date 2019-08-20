@@ -1,4 +1,4 @@
-source ./dotfiles/alias.conf
+source ~/dotfiles/alias.conf
 # fixing c-S for vim
 vim()
 {
@@ -18,6 +18,13 @@ vim()
 # }
 function rf(){
     rm -rf "$1"
+}
+function kite()
+{
+    roscore &
+    cd ~/Code/Mlab_ROS
+    source devel/setup.bash
+    clion &
 }
 function e650()
 {
@@ -123,7 +130,7 @@ function plugin()
     xrandr -d :0 --output HDMI-1 --off
     xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
     xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
-    feh --bg-fill -z ~/Pictures/Wallpapers
+    #feh --bg-fill -z ~/Pictures/Wallpapers
 }
 function plugin1()
 {
@@ -157,6 +164,11 @@ function bu () {
 	# reset variables
 	STRARGMNT=""
 	FUNCTIONARG=$1
+    # First check if no params are provided, if so default 0
+    if test -z "$FUNCTIONARG"
+    then
+        FUNCTIONARG=1
+    fi
 	# Make sure the provided argument is a positive integer:
 	if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
 		for i in $(seq 1 $FUNCTIONARG); do
