@@ -22,6 +22,7 @@ Plugin 'rhysd/vim-grammarous'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'morhetz/gruvbox' "Color scheme 1
+Plugin 'joshdick/onedark.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'taketwo/vim-ros'

@@ -132,14 +132,14 @@ function plugin()
     xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
     #feh --bg-fill -z ~/Pictures/Wallpapers
 }
-function plugin1()
+function plugin_vnc()
 {
     # Code that sets up a second monitor when of a different resolution (1920x1080)
     xrandr -d :0 --fb  7680x2160 --output eDP-1-1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
-    xrandr -d :0 --output HDMI-1-1 --off
+    xrandr -d :0 --output HDMI1 --off
     xrandr -d :0 --fb 7680x2160 --output HDMI-1-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
     xrandr -d :0 --fb 7680x2160 --output HDMI-1-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
-
+    #feh --bg-fill -z ~/Pictures/Wallpapers
 }
 function unplug(){
     # fn to call once the other monitor is unplugged to get stuff back to normal
@@ -180,6 +180,26 @@ function bu () {
 		usage
 	fi
 }
+# connect to a running container using the name of the container
+function docker_connect(){
+    docker exec -it $1 bash
+}
+# Set rosmasteruri and rosip assuming both are the same (core is running on this machine)
+function roscore_ip(){
+    export ROS_MASTER_URI=http://$1:11311
+    export ROS_IP=$1
+}
+# Auto SSh
+function auto_ssh(){
+    false
+    while [ $? -ne 0 ]; do
+        echo "Trying"
+        ssh "$@" || (sleep 1;false)
+    done
+
+}
+# cd + ls
+cdl() { cd "$@" && ls; }
 
 # mkdir and cd into in
 mkcdir ()
@@ -209,6 +229,20 @@ mkcdir ()
 # FUCK
     eval $(thefuck --alias)
     eval $(thefuck --alias FUCK)
- #Vim bindings
+ # Vim bindings
     #set -o vi
     #bind '"jj":vi-movement-mode'
+function source_venv(){
+    source venv/bin/activate
+}
+function caffeine(){
+    status=`xset -q | grep 'DPMS is' | awk '{ print $3 }'`
+if [ $status == 'Enabled' ]; then
+    xset -dpms && \
+    alert 'Screen suspend is disabled.'
+else
+   	    xset +dpms && \
+    alert 'Screen suspend is enabled.'
+fi
+
+}
