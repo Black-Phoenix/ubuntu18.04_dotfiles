@@ -237,12 +237,21 @@ function source_venv(){
 }
 function caffeine(){
     status=`xset -q | grep 'DPMS is' | awk '{ print $3 }'`
-if [ $status == 'Enabled' ]; then
-    xset -dpms && \
-    alert 'Screen suspend is disabled.'
-else
-   	    xset +dpms && \
-    alert 'Screen suspend is enabled.'
-fi
-
+    if [ $status == 'Enabled' ]; then
+        xset -dpms && \
+        alert 'Screen suspend is disabled.'
+    else
+            xset +dpms && \
+        alert 'Screen suspend is enabled.'
+    fi
+}
+function source_ros_name(){
+    # Assumes ros ws is in ROS_ws
+    source /home/raven/Code/ROS_ws/$1_ws/devel/setup.bash
+}
+function source_ros(){
+    # Smart source that uses the current ws to source
+    read path <<< $(echo $(pwd) | awk 'BEGIN{FS=OFS="ws"}{NF--; print}')
+    echo $path"ws/devel/setup.bash"
+    source $path"ws/devel/setup.bash"
 }
