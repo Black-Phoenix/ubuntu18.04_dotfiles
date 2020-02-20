@@ -42,6 +42,8 @@ Plugin 'mattn/calendar-vim' " Calander for Vim wiki
 Plugin 'vimwiki/vimwiki.git' " VimWiki 
 Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'sainnhe/edge'
+Plugin 'ryanoasis/vim-devicons'
 "Plugin 'vim-vdebug/vdebug'
 Plugin 'christoomey/vim-tmux-navigator'
 filetype plugin indent on    " required
@@ -127,7 +129,7 @@ let mapleader="\<SPACE>"
 "}
 " lightline {
     set laststatus=2
-    let g:lightline = { 'colorscheme':'wombat',
+    let g:lightline = { 'colorscheme':'edge',
                 \     'active': {
                 \         'left': [['mode', 'paste' ], ['gitbranch', 'readonly', 'filename', 'modified']],
                 \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
@@ -163,11 +165,14 @@ let mapleader="\<SPACE>"
 " Color settings{
     syntax on
     set t_Co=256
-    let g:gruvbox_italic=1
-    color gruvbox
-    "let g:solarized_termcolors=256
-    "colorscheme solarized
+    let g:edge_style='proton'
+    let g:edge_enable_italic=1
+    let g:edge_current_word='bold'
+    colorscheme edge
+    let g:edge_disable_italic_comment = 1
     set background=dark
+    "let g:gruvbox_italic=1
+    "let g:solarized_termcolors=256
 "}
 " Syntastic {
     let g:syntastic_cpp_checkers = ['clang_check', 'gcc']

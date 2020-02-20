@@ -229,9 +229,13 @@ mkcdir ()
 # FUCK
     eval $(thefuck --alias)
     eval $(thefuck --alias FUCK)
- # Vim bindings
+# Vim bindings{
     #set -o vi
     #bind '"jj":vi-movement-mode'
+    #set show-mode-in-prompt on
+    #set vi-cmd-mode-string "\1\e[2 q\2"
+    #set vi-ins-mode-string "\1\e[6 q\2"
+#}
 function source_venv(){
     source venv/bin/activate
 }
