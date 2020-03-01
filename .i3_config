@@ -219,8 +219,8 @@ assign [class="Firefox"] $ws1
 assign [class="Slack"] $ws9
 assign [class="Google Play Music Desktop Player"] $ws0
 # Run other programs with i3
-exec --no-startup-id compton --config /home/raven/.config/compton.conf 
-exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc-f --config /etc/xdg/compton.conf
+exec --no-startup-id compton --config /home/raven/yvconf/compton.conf 
+exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc-f --config /home/raven/yvconf/compton.conf
 # Conky setup
 exec --no-startup-id /usr/bin/regolith-ftue.sh
 

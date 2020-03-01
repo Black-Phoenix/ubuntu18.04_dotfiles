@@ -1,1 +1,144 @@
-/home/raven/.ideavimrc
+" New leader
+let mapleader="\<SPACE>"
+" Reopen at same place {
+    if has("autocmd")
+      au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+    endif
+" }
+" Tab {
+    set tabstop=4        " tab width is 4 spaces
+    set shiftwidth=4     " indent also with 4 spaces
+    set expandtab        " replaces tab with spaces
+" }
+" Visual mode
+    nnoremap <leader><leader> V
+" }
+" Splits {
+    nnoremap <leader>- :sp<CR>
+    nnoremap <leader>\ :vsp<CR>
+    set splitbelow
+    set splitright
+" }
+" redefining motion between tabs/windows{
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
+    nnoremap <leader>w <C-W><C-W>
+"}
+" tab switching {
+    noremap <S-l> gt
+    noremap <S-h> gT
+    nnoremap <C-W>M <C-W>\|<C-W>_
+    nnoremap <C-W>m <C-W>=
+" }
+" qq to record, q to stop, Q to use 
+" learn dynamic macros{
+    nnoremap Q @q
+    vnoremap Q :norm @q<cr>
+"}
+" line numbers are for plebs {
+    set number relativenumber
+    augroup numbertoggle
+        autocmd!
+        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+        autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    augroup END
+    nmap <leader>n :set relativenumber!<CR>
+"}
+" set stuff{
+    set nu
+    nmap 0 ^
+    " Ignore case when searching
+    set ignorecase
+    " When searching try to be smart about cases
+    set smartcase
+    set hlsearch
+    " Makes search act like search in modern browsers
+    set incsearch
+    " esc clears highlight
+    nnoremap <esc><esc> :noh<return><esc>
+    set ttimeoutlen=50 " sets a time out to help speed it up
+    set backspace=indent,eol,start
+"}
+" Quit current file {
+    noremap <leader>Q :q!<cr>
+    noremap <leader>q :q<cr>
+" }
+" Save with CTRL-S both in insert and command mode{
+    map <C-s> :w<CR>
+    imap <C-s> <Esc>:w<CR>
+    imap jj <Esc>
+"}
+" No annoying sound on errors {
+    set noerrorbells
+    set novisualbell
+    set t_vb=
+    set tm=500
+"}
+" Marks and Jumps {
+    set viminfo='100,f1
+    let g:SignatureMarkTextHLDynamic = 1
+    "onoremap ' `
+    "onoremap ` '
+    "nnoremap ' `
+    "nnoremap ` '
+    "vnoremap ' `
+    "vnoremap ` '
+" }
+" Indentation {
+    set ai "Auto indent
+    set si "Smart indent
+    set wrap "Wrap lines
+" }
+" Color settings{
+    syntax on
+    set t_Co=256
+    let g:edge_style='proton'
+    let g:edge_enable_italic=1
+    let g:edge_current_word='bold'
+    colorscheme edge
+    let g:edge_disable_italic_comment = 1
+    set background=dark
+    "let g:gruvbox_italic=1
+    "let g:solarized_termcolors=256
+"}
+" Syntastic {
+    let g:syntastic_cpp_checkers = ['clang_check', 'gcc']
+    let g:syntastic_cpp_compiler = 'clang++'
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+" }
+" Folding{
+    "let anyfold_activate=1
+    autocmd Filetype * AnyFoldActivate
+    nmap za zA
+" }
+" Comments{
+    nmap <C-_>   <Plug>NERDCommenterToggle
+    vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+    autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
+    autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
+" }
+" Relode changes {
+     set autoread
+     au CursorHold * checktime
+" }
+" Copy global clipboard{
+    set clipboard=unnamedplus
+" }
+" Spell checks{
+    set spell
+    set spell spelllang=en_us 
+    hi clear SpellBad
+    hi SpellBad ctermfg=red guifg=red
+    hi clear SpellCap
+    hi SpellCap ctermfg=Yellow guifg=Yellow
+" }
+" mouse support{
+    map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+" }
+call vundle#end()   
+

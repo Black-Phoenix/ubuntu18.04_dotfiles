@@ -126,10 +126,10 @@ xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | more
 function plugin()
 {
     # Code that sets up a second monitor when of a different resolution (1920x1080)
-    xrandr -d :0 --fb  7680x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
-    xrandr -d :0 --output HDMI-1 --off
-    xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
-    xrandr -d :0 --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+    xrandr --fb  7680x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --rate 60 --pos 0x0 --primary
+    xrandr --output HDMI-1 --off
+    xrandr --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
+    xrandr --fb 7680x2160 --output HDMI-1  --mode 1920x1080  --scale 2x2 --panning 3840x2160+3840+0
     #feh --bg-fill -z ~/Pictures/Wallpapers
 }
 function plugin_vnc()
