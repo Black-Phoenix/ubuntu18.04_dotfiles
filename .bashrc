@@ -1,4 +1,4 @@
-source ~/dotfiles/alias.conf
+source ~/yvconf/alias.conf
 # fixing c-S for vim
 vim()
 {
@@ -208,7 +208,7 @@ mkcdir ()
       cd -P -- "$1"
 }
 # Z
-    . ~/dotfiles/z.sh
+    . ~/yvconf/z.sh
     export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
     export EDITOR='vim'
 # Powerline

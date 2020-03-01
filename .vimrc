@@ -197,7 +197,7 @@ let mapleader="\<SPACE>"
 " }
 " undo tree{
     set undofile
-    set undodir=~/dotfiles/undo
+    set undodir=~/yvconf/undo
     nnoremap <leader>u :MundoToggle<CR>
     let g:mundo_width = 60
     let g:mundo_preview_height = 40
