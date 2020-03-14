@@ -143,8 +143,8 @@ function plugin_vnc()
 }
 function unplug(){
     # fn to call once the other monitor is unplugged to get stuff back to normal
-    xrandr -d :0 --output HDMI-1 --off
-    xrandr -d :0 --fb 3840x2160 --output eDP-1  --scale 1x1 --pos 0x0 --primary
+    xrandr --output HDMI-1 --off
+    xrandr --fb 3840x2160 --output eDP-1  --scale 1x1 --pos 0x0 --primary
 }
 function unplug_main(){
     # fn to call once the other monitor is unplugged to get stuff back to normal
@@ -253,9 +253,47 @@ function source_ros_name(){
     # Assumes ros ws is in ROS_ws
     source /home/raven/Code/ROS_ws/$1_ws/devel/setup.bash
 }
+
 function source_ros(){
     # Smart source that uses the current ws to source
     read path <<< $(echo $(pwd) | awk 'BEGIN{FS=OFS="ws"}{NF--; print}')
     echo $path"ws/devel/setup.bash"
     source $path"ws/devel/setup.bash"
 }
+fzf_color_scheme(){
+    local base03="234"
+    local base02="235"
+    local base01="240"
+    local base00="241"
+    local base0="244"
+    local base1="245"
+    local base2="254"
+    local base3="230"
+    local yellow="136"
+    local orange="166"
+    local red="160"
+    local magenta="125"
+    local violet="61"
+    local blue="33"
+    local cyan="37"
+    local green="64"
+
+    # Comment and uncomment below for the light theme.
+
+    # Solarized Dark color scheme for fzf
+    export FZF_DEFAULT_OPTS="
+    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
+    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
+    "
+    ## Solarized Light color scheme for fzf
+    #export FZF_DEFAULT_OPTS="
+    #  --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
+    #  --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
+    #"
+}
+fzf_color_scheme
+# virtual envs{
+    export WORKON_HOME=$HOME/Code/virtual_envs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source $HOME/.local/bin/virtualenvwrapper.sh
+#}
