@@ -15,6 +15,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dracula/vim'
+Plugin 'junegunn/fzf'
 Plugin 'jonstoler/werewolf.vim'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'xuhdev/vim-latex-live-preview'
@@ -168,7 +169,7 @@ let mapleader="\<SPACE>"
     let g:edge_style='proton'
     let g:edge_enable_italic=1
     let g:edge_current_word='bold'
-    colorscheme edge
+    colorscheme dracula
     let g:edge_disable_italic_comment = 1
     set background=dark
     "let g:gruvbox_italic=1
@@ -315,7 +316,7 @@ let mapleader="\<SPACE>"
     command! -nargs=* DebugPy call DebugPy('% <args>')
 " }
 " FZF{
-    set rtp+=~/.fzf
+    "set rtp+=~/.fzf
 " }
 " mouse support{
     map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
