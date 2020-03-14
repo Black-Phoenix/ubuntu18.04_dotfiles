@@ -216,6 +216,7 @@ bar {
 
 # Set certain applications to certain windows
 assign [class="Firefox"] $ws1
+for_window [workspace=$ws1] layout stacking
 assign [class="Slack"] $ws9
 assign [class="Google Play Music Desktop Player"] $ws0
 # Run other programs with i3
