@@ -121,13 +121,8 @@ let mapleader="\<SPACE>"
 " Folding{
     "let anyfold_activate=1
     autocmd Filetype * AnyFoldActivate
-    nmap za zA
-" }
-" Comments{
-    nmap <C-_>   <Plug>NERDCommenterToggle
-    vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
-    autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
-    autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
+    nnoremap zc :action CollapseRegionRecursively<CR>
+    nnoremap za :action ExpandRegionRecursively<CR>
 " }
 " Relode changes {
      set autoread
