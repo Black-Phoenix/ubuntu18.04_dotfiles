@@ -1,5 +1,6 @@
 " New leader
-let mapleader="\<SPACE>"
+let mapleader=" "
+"let mapleader="\<SPACE>"
 " Reopen at same place {
     if has("autocmd")
       au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -143,7 +144,6 @@ let mapleader="\<SPACE>"
     map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 " }
 " Easy motions {
-    let mapleader=" "
     set easymotion
     " Remap / to use easy motion
     let g:EasyMotion_do_mapping = 0 " Disable default mappings

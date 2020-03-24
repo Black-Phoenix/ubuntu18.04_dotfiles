@@ -249,7 +249,11 @@ let mapleader="\<SPACE>"
     map <Leader>k <Plug>(easymotion-k)
 " }
 " Copy global clipboard{
-    set clipboard=unnamedplus
+    vmap <C-c> "+yi<esc>
+    "set clipboard=unnamedplus
+" }
+" Registers{
+    nnoremap<Leader>r  :reg <CR>
 " }
 " Python running code{
     "imap <Leader>P <Esc>:w<CR>:!clear;python %<CR>
