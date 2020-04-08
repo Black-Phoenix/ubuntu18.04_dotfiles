@@ -326,3 +326,4 @@ let mapleader="\<SPACE>"
     map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 " }
 call vundle#end()   
+

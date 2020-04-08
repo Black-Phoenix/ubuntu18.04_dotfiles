@@ -1,6 +1,5 @@
 " New leader
 let mapleader=" "
-"let mapleader="\<SPACE>"
 " Reopen at same place {
     if has("autocmd")
       au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -11,10 +10,6 @@ let mapleader=" "
     set tabstop=4        " tab width is 4 spaces
     set shiftwidth=4     " indent also with 4 spaces
     set expandtab        " replaces tab with spaces
-" }
-" Visual mode
-    nnoremap <Space><Space> V
-    nnoremap v <C-v>
 " }
 " Splits {
     nnoremap <leader>- :sp<CR>
@@ -167,4 +162,12 @@ let mapleader=" "
     " JK motions: Line motions
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
+" }
+" Visual mode
+    nnoremap <Space><Space> V
+    nnoremap v <C-v>
+" }
+" new line above and below{
+    nnoremap <Leader>] o<esc>
+    nnoremap <Leader>[ O<esc>
 " }
