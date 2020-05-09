@@ -45,6 +45,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sainnhe/edge'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'vim-vdebug/vdebug'
 Plugin 'christoomey/vim-tmux-navigator'
 filetype plugin indent on    " required
@@ -79,10 +80,10 @@ let mapleader="\<SPACE>"
     nnoremap <leader>w <C-W><C-W>
 "}
 " remap the arrow keys{
-    noremap <Up> <NOP>
-    noremap <Down> <NOP>
-    noremap <Left> <NOP>
-    noremap <Right> <NOP>
+    "noremap <Up> <NOP>
+    "noremap <Down> <NOP>
+    "noremap <Left> <NOP>
+    "noremap <Right> <NOP>
 " }
 " tab switching {
     noremap <S-l> gt
@@ -324,6 +325,12 @@ let mapleader="\<SPACE>"
 " }
 " mouse support{
     map <leader>m :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+" }
+" Latex support{
+    autocmd Filetype tex setl updatetime=1
+    let g:livepreview_previewer = 'open -a Preview'
+    " Run :LLPStartPreview to start the live preview
+    "
 " }
 call vundle#end()   
 

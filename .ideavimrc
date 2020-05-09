@@ -171,3 +171,8 @@ let mapleader=" "
     nnoremap <Leader>] o<esc>
     nnoremap <Leader>[ O<esc>
 " }
+" [<space> and ]<space>
+
+    nnoremap [<Space> O<esc>j
+    nnoremap ]<Space> o<esc>k
+" }

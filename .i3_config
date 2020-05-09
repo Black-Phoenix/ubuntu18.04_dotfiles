@@ -218,6 +218,7 @@ bar {
 assign [class="Firefox"] $ws1
 for_window [workspace=$ws1] layout stacking
 assign [class="Slack"] $ws9
+assign [class="clion"] $ws2
 assign [class="Google Play Music Desktop Player"] $ws0
 # Run other programs with i3
 exec --no-startup-id compton --config /home/raven/yvconf/compton.conf 
