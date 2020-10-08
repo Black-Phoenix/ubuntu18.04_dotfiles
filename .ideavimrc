@@ -176,3 +176,4 @@ let mapleader=" "
     nnoremap [<Space> O<esc>j
     nnoremap ]<Space> o<esc>k
 " }
+set clipboard+=ideaputset ideajoin

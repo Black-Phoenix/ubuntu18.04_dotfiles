@@ -153,6 +153,9 @@ function unplug_main(){
     xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
     xrandr -d :0 --fb 2880x1620 --output HDMI-1 --mode 1920x1080 --pos 0x0 --panning 2880x1620 --primary --scale 1.5x1.5 
 }
+function replace(){
+	ag -0 -l $1 | xargs -0 sed -ri -e "s/$1/$2/g"
+}
 function bu () {
 	function usage () {
 		 cat <<-EOF
@@ -212,11 +215,14 @@ mkcdir ()
     export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-9/worlds:/home/raven/Code/Gazebo_KLab/catkin_ws/src/tree_world/world
     export EDITOR='vim'
 # Powerline
-    export PATH=$PATH:$HOME/Library/Python/2.7/bin
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    . /home/raven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+    export PATH=$PATH:$HOME/.local/bin
+     
+    if [ -f $HOME/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+        $HOME/.local/bin/powerline-daemon -q
+        POWERLINE_BASH_CONTINUATION=1
+        POWERLINE_BASH_SELECT=1
+        source $HOME/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+    fi
 
 # Fix history
     export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
