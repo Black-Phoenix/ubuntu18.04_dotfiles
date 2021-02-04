@@ -17,7 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'dracula/vim'
 Plugin 'junegunn/fzf'
 Plugin 'jonstoler/werewolf.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'simnalamburt/vim-mundo'
@@ -44,7 +44,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sainnhe/edge'
 Plugin 'ryanoasis/vim-devicons'
-"Plugin 'vim-vdebug/vdebug'
+Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'christoomey/vim-tmux-navigator'
 filetype plugin indent on    " required
 
@@ -281,6 +281,15 @@ let mapleader="\<SPACE>"
       end
     endfunction
     :autocmd FileType vimwiki map C :call ToggleCalendar()<CR>
+    " Fn to auto gen diary links
+    command! Diary VimwikiDiaryIndex
+    augroup vimwikigroup
+        autocmd!
+        " automatically update links on read diary
+        autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+    augroup end
+    " Use custom vimwiki diary template
+    au BufNewFile ~/vimwiki/diary/*.wiki :silent 0r !~/yvconf/generate-vimwiki-diary-template '%' 
 " }
 " Matrix function{
     function! CreateMatrix(rows, ...) abort
