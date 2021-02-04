@@ -1,0 +1,20 @@
+#!/usr/bin/python
+import sys
+import datetime
+
+template = """Day *{date}*
+
+= Things I did today = 
+
+* 
+
+= Things to do tomorrow =
+
+*
+ 
+= Notes =
+* 
+"""
+
+date = datetime.date.today()
+print(template.format(date=date))
