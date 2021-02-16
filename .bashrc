@@ -304,3 +304,6 @@ fzf_color_scheme
     source $HOME/.local/bin/virtualenvwrapper.sh
 #}
 
+# Color man pages{
+    export MANPAGER="nvim -c 'set ft=man' -"
+# }
