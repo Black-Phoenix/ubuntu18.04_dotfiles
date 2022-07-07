@@ -1,8 +1,8 @@
-" set the runtime path to include Vundle and initialize
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 "call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+"alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
@@ -76,7 +76,7 @@ let mapleader="\<SPACE>"
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
     nnoremap <leader>w <C-W><C-W>
-"}
+" }
 " remap the arrow keys{
     "noremap <Up> <NOP>
     "noremap <Down> <NOP>
@@ -93,7 +93,7 @@ let mapleader="\<SPACE>"
 " learn dynamic macros{
     nnoremap Q @q
     vnoremap Q :norm @q<cr>
-"}
+" }
 " line numbers are for plebs {
     set number relativenumber
     augroup numbertoggle
@@ -117,7 +117,7 @@ let mapleader="\<SPACE>"
     nnoremap <esc><esc> :noh<return><esc>
     set ttimeoutlen=50 " sets a time out to help speed it up
     set backspace=indent,eol,start
-"}
+" }
 " Quit current file {
     noremap <leader>Q :q!<cr>
     noremap <leader>q :q<cr>
@@ -126,7 +126,7 @@ let mapleader="\<SPACE>"
     map <C-s> :w<CR>
     imap <C-s> <Esc>:w<CR>
     imap jj <Esc>
-"}
+" }
 " lightline {
     set laststatus=2
     let g:lightline = { 'colorscheme':'edge',
