@@ -307,3 +307,33 @@ fzf_color_scheme
 # Color man pages{
     export MANPAGER="nvim -c 'set ft=man' -"
 # }
+
+cl() {
+    local dir="$1"
+    local dir="${dir:=$HOME}"
+    if [[ -d "$dir" ]]; then
+        cd "$dir" >/dev/null; ls --color=auto
+    else
+        echo "bash: cdls: $dir: Directory not found"
+    fi
+}
+
+function lf(){
+    if [ "$1" == "p" ]; then
+        ls /mnt/nas_processed/ts-processed/*/$2/*/
+    elif [ "$1" == "r" ]; then
+        ls /mnt/nas_raw/ts-raw/*/$2/
+    elif [ "$1" == "s" ]; then
+        ls /mnt/nas_processed/ts-stand/*/$2/*/
+    fi
+}
+
+function cf(){
+    if [ "$1" == "p" ]; then
+        cd /mnt/nas_processed/ts-processed/*/$2/*/
+    elif [ "$1" == "r" ]; then
+        cd /mnt/nas_raw/ts-raw/*/$2/
+    elif [ "$1" == "s" ]; then
+        cd /mnt/nas_processed/ts-stand/*/$2/*/
+    fi
+}
